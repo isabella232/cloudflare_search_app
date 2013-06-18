@@ -1,0 +1,25 @@
+{
+  "name": "Swiftype Search",
+  "description": "Add search to your website with one click, then see what your visitors are searching for on your site.",
+  "version": "0.1",
+  "main": "public/javascripts/swiftype.js",
+  "config": {
+    "details":{
+      "Language": "English",
+      "Price": "Free",
+      "Restrictions": "None",
+      "TOS": "https://swiftype.com/terms",
+      "has_js": true
+    },
+    "assets":{
+      "logos" : {
+        "200px": "./public/images/logo-200.png",
+        "132px": "./public/images/logo-132.png"
+      },
+    }
+  },
+  "account": {
+    "callback_url": "https://swiftype.com/cloudflare/account",
+    "user_fields": ["email"]
+  }
+}
