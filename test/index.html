@@ -1,7 +1,15 @@
+<!doctype html>
+<html>
+<head>
+<title>Hacky Test File</title>
+
+<script type="text/javascript" src="http://ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+
 // TODO: change to use cloudflare/loader, it's probably smaller
-// FIXME: have to figure out how to use imports
-Cloudflare.define("swiftype", ["swiftype/config", "cloudflare/jquery1.9"],
-                  function(config, $) {
+CloudFlare.define("swiftype", ["cloudflare/loader"],
+                  function(foo) {
                     var addSwiftype = function(engineKey) {
                       window.Swiftype = window.Swiftype || {};
                       window.Swiftype.key = engineKey;
@@ -9,14 +17,14 @@ Cloudflare.define("swiftype", ["swiftype/config", "cloudflare/jquery1.9"],
                       var script = document.createElement('script');
                       script.type = 'text/javascript';
                       script.async = true;
-                      script.src = "//swiftype.com/embed.js";
+                      script.src = "//localhost:3000/embed.js";
 
                       var head = document.getElementsByTagName('head')[0];
                       head.appendChild(script);
                     };
 
-                    $.getJSON("https://swiftype.com/cloudflare/domains?callback=?",
-                              {domain_id: config && config.domain_id},
+                    $.getJSON("http://localhost:3000/cloudflare/domains?callback=?",
+                              {domain_id: '90909'},
                               function(data) {
                                 if (data.engine_key) {
                                   addSwiftype(data.engine_key);
@@ -24,3 +32,16 @@ Cloudflare.define("swiftype", ["swiftype/config", "cloudflare/jquery1.9"],
                               });
                   }
 );
+
+</script>
+</head>
+
+<body>
+<h1>Hacky Test File</h1>
+
+<p>Will search appear?!</p>
+
+
+
+</body>
+</html>
