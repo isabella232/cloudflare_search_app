@@ -4,12 +4,11 @@
 <title>Hacky Test File</title>
 
 <script type="text/javascript" src="http://ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 // TODO: change to use cloudflare/loader, it's probably smaller
-CloudFlare.define("swiftype", ["cloudflare/loader"],
-                  function(foo) {
+CloudFlare.define("swiftype", ["cloudflare/jquery1.9"],
+                  function(jQuery) {
                     var addSwiftype = function(engineKey) {
                       window.Swiftype = window.Swiftype || {};
                       window.Swiftype.key = engineKey;
@@ -23,7 +22,7 @@ CloudFlare.define("swiftype", ["cloudflare/loader"],
                       head.appendChild(script);
                     };
 
-                    $.getJSON("http://localhost:3000/cloudflare/domains?callback=?",
+                    jQuery.getJSON("http://localhost:3000/cloudflare/domains?callback=?",
                               {domain_id: '90909'},
                               function(data) {
                                 if (data.engine_key) {
