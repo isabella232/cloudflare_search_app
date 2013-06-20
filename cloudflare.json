@@ -1,7 +1,7 @@
 {
   "name": "Swiftype Search",
   "description": "Add search to your website with one click, then see what your visitors are searching for on your site.",
-  "version": "0.4",
+  "version": "0.5",
   "category": "contextual search",
   "main": "public/javascripts/swiftype.js",
   "config": {
