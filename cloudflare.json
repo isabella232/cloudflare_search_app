@@ -20,7 +20,7 @@
     }
   },
   "account": {
-    "callback_url": "https://swiftype.com/cloudflare/accounts",
+    "callback_url": "https://swiftype.com/cloudflare",
     "user_fields": ["email"]
   }
 }
