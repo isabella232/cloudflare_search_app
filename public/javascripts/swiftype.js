@@ -1,6 +1,6 @@
 // TODO: change to use cloudflare/loader, it's probably smaller
 // FIXME: have to figure out how to use imports
-Cloudflare.define("swiftype", ["swiftype/config", "cloudflare/jquery1.9"],
+Cloudflare.define("swiftype_search", ["swiftype_search/config", "cloudflare/jquery1.9"],
                   function(config, $) {
                     var addSwiftype = function(engineKey) {
                       window.Swiftype = window.Swiftype || {};
