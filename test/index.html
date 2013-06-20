@@ -5,32 +5,26 @@
 
 <script type="text/javascript" src="http://ajax.cloudflare.com/cdn-cgi/nexp/cloudflare.js"></script>
 <script type="text/javascript">
+CloudFlare.define("swiftype_search/config", function() { return {engine_key: '2EREygNPyyXhiH83dAPE'}});
+CloudFlare.define("swiftype_search", ["swiftype_search/config"],
+                  function(config) {
+                    if (config === undefined || config === null || config.engine_key === undefined) {
+                      return;
+                    }
 
-// TODO: change to use cloudflare/loader, it's probably smaller
-CloudFlare.define("swiftype", ["cloudflare/jquery1.9"],
-                  function(jQuery) {
-                    var addSwiftype = function(engineKey) {
-                      window.Swiftype = window.Swiftype || {};
-                      window.Swiftype.key = engineKey;
+                    window.Swiftype = window.Swiftype || {};
+                    window.Swiftype.key = config.engine_key;
 
-                      var script = document.createElement('script');
-                      script.type = 'text/javascript';
-                      script.async = true;
-                      script.src = "//localhost:3000/embed.js";
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.async = true;
+                    script.src = "//swiftype.com/embed.js";
 
-                      var head = document.getElementsByTagName('head')[0];
-                      head.appendChild(script);
-                    };
-
-                    jQuery.getJSON("http://localhost:3000/cloudflare/domains?callback=?",
-                              {domain_id: '90909'},
-                              function(data) {
-                                if (data.engine_key) {
-                                  addSwiftype(data.engine_key);
-                                }
-                              });
+                    var head = document.getElementsByTagName('head')[0];
+                    head.appendChild(script);
                   }
 );
+
 
 </script>
 </head>

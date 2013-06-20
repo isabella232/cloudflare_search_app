@@ -1,26 +1,18 @@
-// TODO: change to use cloudflare/loader, it's probably smaller
-// FIXME: have to figure out how to use imports
-CloudFlare.define("swiftype_search", ["swiftype_search/config", "cloudflare/jquery1.9"],
-                  function(config, $) {
-                    var addSwiftype = function(engineKey) {
-                      window.Swiftype = window.Swiftype || {};
-                      window.Swiftype.key = engineKey;
+CloudFlare.define("swiftype_search", ["swiftype_search/config"],
+                  function(config) {
+                    if (config === undefined || config === null || config.engine_key === undefined) {
+                      return;
+                    }
 
-                      var script = document.createElement('script');
-                      script.type = 'text/javascript';
-                      script.async = true;
-                      script.src = "//swiftype.com/embed.js";
+                    window.Swiftype = window.Swiftype || {};
+                    window.Swiftype.key = config.engine_key;
 
-                      var head = document.getElementsByTagName('head')[0];
-                      head.appendChild(script);
-                    };
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.async = true;
+                    script.src = "//swiftype.com/embed.js";
 
-                    $.getJSON("https://swiftype.com/cloudflare/domains?callback=?",
-                              {domain_id: config && config.domain_id},
-                              function(data) {
-                                if (data.engine_key) {
-                                  addSwiftype(data.engine_key);
-                                }
-                              });
+                    var head = document.getElementsByTagName('head')[0];
+                    head.appendChild(script);
                   }
 );
