@@ -1,7 +1,7 @@
 {
   "name": "Swiftype Search",
   "description": "Add search to your website with one click, then see what your visitors are searching for on your site.",
-  "version": "0.7",
+  "version": "0.8",
   "category": "site search",
   "main": "public/javascripts/swiftype.js",
   "config": {
@@ -16,7 +16,10 @@
       "logos" : {
         "200px": "./public/images/logo-200.png",
         "132px": "./public/images/logo-132.png"
-      }
+      },
+      "detail_page": [
+        "./public/images/search-overlay.png"
+      ]
     },
     "interface": [
       {
