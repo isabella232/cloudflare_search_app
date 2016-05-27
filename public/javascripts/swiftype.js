@@ -10,7 +10,7 @@ CloudFlare.define("swiftype_search", ["swiftype_search/config"],
                     var script = document.createElement('script');
                     script.type = 'text/javascript';
                     script.async = true;
-                    script.src = "//swiftype.com/embed.js";
+                    script.src = "//s.swiftypecdn.com/embed.js";
 
                     var head = document.getElementsByTagName('head')[0];
                     head.appendChild(script);
